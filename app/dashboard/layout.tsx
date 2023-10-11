@@ -1,7 +1,5 @@
-import Link from "next/link";
 import Navigation from "@/components/Navigation";
 import Sidebar from "@/components/Sidebar";
-import Footer from "@/components/Footer";
 
 export default function DashboardLayout({
   children,
@@ -15,7 +13,6 @@ export default function DashboardLayout({
         <Sidebar />
         <main className="flex-grow p-4">{children}</main>
       </div>
-      {/* <Footer /> */}
     </main>
   );
 }
