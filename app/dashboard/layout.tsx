@@ -1,5 +1,5 @@
 import Navigation from "@/components/Navigation";
-import Sidebar from "@/components/Sidebar";
+import { SidebarProvider } from "../context/sidebar-context";
 
 export default function DashboardLayout({
   children,
@@ -7,12 +7,13 @@ export default function DashboardLayout({
   children: React.ReactNode;
 }) {
   return (
-    <main className="flex flex-col min-h-screen">
-      <Navigation />
+    <div className="flex flex-col min-h-screen">
       <div className="flex flex-1">
-        <Sidebar />
-        <main className="flex-grow p-4">{children}</main>
+        <SidebarProvider>
+          <Navigation />
+          <main className="flex-grow p-4">{children}</main>
+        </SidebarProvider>
       </div>
-    </main>
+    </div>
   );
 }

@@ -1,6 +1,7 @@
+import { Board } from "@/types/types";
 import { useBoardData } from "@/hooks/useBoardData";
 import ColumnsList from "@/components/ColumnsList";
-import { Board } from "@/types/types";
+import MainWrapper from "@/components/MainWrapper";
 
 export default async function Dashboard() {
   const { boards } = useBoardData();
@@ -12,9 +13,5 @@ export default async function Dashboard() {
 
   const board: Board = findBoard(boardId)[0];
 
-  return (
-    <div className="p-4 md:ml-64 h-auto pt-20">
-      {board && <ColumnsList {...board} />}
-    </div>
-  );
+  return <MainWrapper>{board && <ColumnsList {...board} />}</MainWrapper>;
 }
