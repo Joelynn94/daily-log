@@ -1,7 +1,5 @@
-import Navigation from "@/components/Navigation";
 import "./globals.css";
-import Footer from "@/components/Footer";
-import Sidebar from "@/components/Sidebar";
+import { ThemeProvider } from "@/components/theme-provider";
 
 export const metadata = {
   title: "Create Next App",
@@ -14,9 +12,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="dark">
-      <body className="antialiased bg-gray-50 dark:bg-gray-900">
-        {children}
+    <html lang="en">
+      <body>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );
