@@ -4,20 +4,19 @@ import { cookies } from "next/headers";
 export const dynamic = "force-dynamic";
 
 export default async function APIComponent() {
-  console.log(cookies);
   const supabase = createServerComponentClient({ cookies });
 
   const getData = async () => {
-    let { data: boards, error } = await supabase.from("boards").select("*");
-    console.log(boards);
+    let { data: tasks, error } = await supabase.from("tasks").select("*");
+    console.log(tasks);
 
     if (error) {
       console.error("Supabase error:", error);
       throw error;
     }
 
-    if (boards) {
-      return boards;
+    if (tasks) {
+      return tasks;
     }
   };
 
